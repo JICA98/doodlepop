@@ -1,0 +1,20 @@
+const RAW = `
+manzana,plátano,naranja,uvas,fresa,sandía,piña,cereza,limón,melocotón,pera,mango,coco,zanahoria,patata,tomate,cebolla,seta,pan,queso,mantequilla,huevo,pizza,sopa,ensalada,tarta,helado,chocolate,caramelo,leche,café,té,
+perro,gato,caballo,vaca,cerdo,oveja,cabra,gallina,pato,conejo,ratón,tortuga,rana,serpiente,cocodrilo,dinosaurio,dragón,unicornio,león,tigre,oso,lobo,zorro,ciervo,elefante,jirafa,cebra,mono,canguro,erizo,murciélago,búho,águila,loro,pingüino,cisne,pez,tiburón,ballena,delfín,pulpo,medusa,cangrejo,estrella de mar,caracol,araña,hormiga,abeja,mariposa,mariquita,
+casa,castillo,torre,puente,faro,molino,iglesia,escuela,hospital,hotel,valla,puerta,ventana,tejado,chimenea,escalera,
+silla,mesa,sofá,cama,lámpara,vela,espejo,reloj,televisión,teléfono,ordenador,cámara,radio,nevera,horno,bañera,inodoro,ducha,toalla,jabón,cepillo de dientes,escoba,cubo,cortina,almohada,manta,alfombra,
+coche,autobús,camión,bicicleta,moto,tren,avión,helicóptero,cohete,globo aerostático,paracaídas,barco,velero,submarino,tractor,ambulancia,semáforo,
+camisa,pantalones,falda,vestido,chaqueta,abrigo,jersey,bufanda,guantes,gorro,corona,casco,gafas,calcetín,zapato,bota,cinturón,corbata,mochila,paraguas,anillo,collar,
+sol,luna,estrella,nube,lluvia,nieve,muñeco de nieve,arcoíris,rayo,tornado,niebla,viento,volcán,montaña,cueva,isla,playa,desierto,selva,bosque,lago,río,cascada,mar,ola,planeta,tierra,cometa,
+árbol,palmera,flor,rosa,tulipán,girasol,cactus,hierba,hoja,rama,
+fútbol,baloncesto,tenis,golf,natación,esquí,pesca,escalada,trampolín,columpio,tobogán,medalla,trofeo,
+guitarra,piano,violín,tambor,trompeta,flauta,micrófono,auriculares,
+martillo,destornillador,sierra,hacha,pala,clavo,escalera de mano,pincel,tijeras,cuerda,ancla,imán,pila,bombilla,linterna,brújula,mapa,telescopio,microscopio,lupa,termómetro,
+lápiz,bolígrafo,goma,regla,cuaderno,libro,periódico,carta,calendario,globo terráqueo,pizarra,
+rey,reina,príncipe,princesa,caballero,mago,bruja,hada,sirena,pirata,robot,extraterrestre,fantasma,vampiro,esqueleto,monstruo,ángel,gigante,payaso,vaquero,astronauta,bombero,médico,maestro,granjero,cocinero,pintor,
+cabeza,cara,ojo,nariz,boca,diente,lengua,oreja,pelo,barba,cuello,brazo,mano,dedo,pierna,rodilla,pie,corazón,cerebro,hueso,
+cumpleaños,árbol de navidad,regalo,globo,fuegos artificiales,circo,noria,montaña rusa,
+tesoro,cofre del tesoro,oro,diamante,moneda,llave,candado,calavera,espada,escudo,arco,cañón,
+cuchara,tenedor,cuchillo,plato,tazón,taza,botella,olla,sartén,tetera,
+`;
+export const ES_WORDS: string[] = Array.from(new Set(RAW.split(/[,\n]/).map((w) => w.trim().toLowerCase()).filter(Boolean)));

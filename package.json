@@ -1,0 +1,31 @@
+{
+  "name": "doodlepop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Doodlepop - a multiplayer draw & guess game on Cloudflare Workers + Durable Objects",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/ensure-dist.mjs && concurrently -k -n api,web -c blue,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "wrangler dev --port 8787",
+    "dev:web": "vite --config web/vite.config.ts web",
+    "build": "vite build --config web/vite.config.ts web",
+    "preview": "npm run build && wrangler dev --port 8787",
+    "deploy": "npm run build && wrangler deploy",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p web/tsconfig.json --noEmit",
+    "test": "node --import tsx --test worker/test/*.test.ts",
+    "test:e2e": "node scripts/e2e.mjs"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250910.0",
+    "@preact/preset-vite": "^2.10.0",
+    "@types/node": "^20.14.0",
+    "@types/ws": "^8.5.12",
+    "concurrently": "^9.0.0",
+    "preact": "^10.24.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0",
+    "wrangler": "^4.0.0",
+    "ws": "^8.18.0"
+  }
+}

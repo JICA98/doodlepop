@@ -1,0 +1,20 @@
+const RAW = `
+apfel,banane,birne,erdbeere,kirsche,zitrone,traube,wassermelone,ananas,karotte,kartoffel,tomate,zwiebel,pilz,brot,käse,butter,ei,pizza,suppe,kuchen,eis,schokolade,bonbon,milch,kaffee,tee,
+hund,katze,pferd,kuh,schwein,schaf,ziege,huhn,ente,hase,maus,schildkröte,frosch,schlange,krokodil,drache,einhorn,löwe,tiger,bär,wolf,fuchs,hirsch,elefant,giraffe,zebra,affe,känguru,igel,fledermaus,eule,adler,papagei,pinguin,schwan,fisch,hai,wal,delfin,krake,qualle,krebs,seestern,schnecke,spinne,ameise,biene,schmetterling,marienkäfer,
+haus,schloss,turm,brücke,leuchtturm,windmühle,kirche,schule,krankenhaus,hotel,zaun,tür,fenster,dach,schornstein,treppe,
+stuhl,tisch,sofa,bett,lampe,kerze,spiegel,uhr,fernseher,telefon,computer,kamera,radio,kühlschrank,ofen,badewanne,toilette,dusche,handtuch,seife,zahnbürste,besen,eimer,vorhang,kissen,decke,teppich,
+auto,bus,lastwagen,fahrrad,motorrad,zug,flugzeug,hubschrauber,rakete,heißluftballon,fallschirm,boot,schiff,segelboot,u-boot,traktor,krankenwagen,feuerwehrauto,ampel,
+hemd,hose,rock,kleid,jacke,mantel,pullover,schal,handschuh,mütze,krone,helm,brille,socke,schuh,stiefel,gürtel,krawatte,rucksack,regenschirm,ring,halskette,
+sonne,mond,stern,wolke,regen,schnee,schneemann,regenbogen,blitz,tornado,nebel,wind,vulkan,berg,höhle,insel,strand,wüste,dschungel,wald,see,fluss,wasserfall,meer,welle,planet,erde,komet,
+baum,palme,blume,rose,tulpe,sonnenblume,kaktus,gras,blatt,ast,
+fußball,basketball,tennis,golf,schwimmen,skifahren,angeln,klettern,trampolin,schaukel,rutsche,medaille,pokal,
+gitarre,klavier,geige,trommel,trompete,flöte,mikrofon,kopfhörer,
+hammer,schraubenzieher,säge,axt,schaufel,nagel,leiter,pinsel,schere,seil,anker,magnet,batterie,glühbirne,taschenlampe,kompass,landkarte,fernrohr,mikroskop,lupe,thermometer,
+bleistift,stift,radiergummi,lineal,heft,buch,zeitung,brief,kalender,globus,tafel,
+könig,königin,prinz,prinzessin,ritter,zauberer,hexe,fee,meerjungfrau,pirat,roboter,außerirdischer,gespenst,vampir,skelett,monster,engel,riese,clown,cowboy,astronaut,feuerwehrmann,arzt,lehrer,bauer,koch,maler,
+kopf,gesicht,auge,nase,mund,zahn,zunge,ohr,haar,bart,hals,arm,hand,finger,bein,knie,fuß,herz,gehirn,knochen,
+geburtstag,weihnachtsbaum,geschenk,luftballon,feuerwerk,zirkus,riesenrad,achterbahn,
+schatz,schatzkiste,gold,diamant,münze,schlüssel,schloss,totenkopf,schwert,schild,bogen,kanone,
+löffel,gabel,messer,teller,schüssel,tasse,flasche,topf,pfanne,teekanne,
+`;
+export const DE_WORDS: string[] = Array.from(new Set(RAW.split(/[,\n]/).map((w) => w.trim().toLowerCase()).filter(Boolean)));

@@ -1,0 +1,20 @@
+const RAW = `
+pomme,banane,orange,raisin,fraise,pastèque,ananas,cerise,citron,pêche,poire,mangue,noix de coco,carotte,pomme de terre,tomate,oignon,champignon,pain,fromage,beurre,oeuf,pizza,soupe,salade,gâteau,glace,chocolat,bonbon,lait,café,thé,croissant,baguette,crêpe,
+chien,chat,cheval,vache,cochon,mouton,chèvre,poule,canard,lapin,souris,tortue,grenouille,serpent,crocodile,dinosaure,dragon,licorne,lion,tigre,ours,loup,renard,cerf,éléphant,girafe,zèbre,singe,kangourou,hérisson,chauve-souris,hibou,aigle,perroquet,pingouin,cygne,poisson,requin,baleine,dauphin,pieuvre,méduse,crabe,étoile de mer,escargot,araignée,fourmi,abeille,papillon,coccinelle,
+maison,château,tour,pont,phare,moulin,église,école,hôpital,hôtel,clôture,porte,fenêtre,toit,cheminée,escalier,
+chaise,table,canapé,lit,lampe,bougie,miroir,horloge,télévision,téléphone,ordinateur,appareil photo,radio,réfrigérateur,four,baignoire,douche,serviette,savon,brosse à dents,balai,seau,rideau,oreiller,couverture,tapis,
+voiture,autobus,camion,vélo,moto,train,avion,hélicoptère,fusée,montgolfière,parachute,bateau,voilier,sous-marin,tracteur,ambulance,feu rouge,
+chemise,pantalon,jupe,robe,veste,manteau,pull,écharpe,gants,bonnet,couronne,casque,lunettes,chaussette,chaussure,botte,ceinture,cravate,sac à dos,parapluie,bague,collier,
+soleil,lune,étoile,nuage,pluie,neige,bonhomme de neige,arc-en-ciel,éclair,tornade,brouillard,vent,volcan,montagne,grotte,île,plage,désert,jungle,forêt,lac,rivière,cascade,mer,vague,planète,terre,comète,
+arbre,palmier,fleur,rose,tulipe,tournesol,cactus,herbe,feuille,branche,
+football,basket,tennis,golf,natation,ski,pêche,escalade,trampoline,balançoire,toboggan,médaille,trophée,
+guitare,piano,violon,tambour,trompette,flûte,microphone,casque audio,
+marteau,tournevis,scie,hache,pelle,clou,échelle,pinceau,ciseaux,corde,ancre,aimant,pile,ampoule,lampe de poche,boussole,carte,télescope,microscope,loupe,thermomètre,
+crayon,stylo,gomme,règle,cahier,livre,journal,lettre,calendrier,globe,tableau,
+roi,reine,prince,princesse,chevalier,magicien,sorcière,fée,sirène,pirate,robot,extraterrestre,fantôme,vampire,squelette,monstre,ange,géant,clown,cowboy,astronaute,pompier,médecin,professeur,fermier,cuisinier,peintre,
+tête,visage,oeil,nez,bouche,dent,langue,oreille,cheveux,barbe,cou,bras,main,doigt,jambe,genou,pied,coeur,cerveau,os,
+anniversaire,sapin de noël,cadeau,ballon,feu d'artifice,cirque,grande roue,montagnes russes,
+trésor,coffre au trésor,or,diamant,pièce,clé,cadenas,crâne,épée,bouclier,arc,canon,
+cuillère,fourchette,couteau,assiette,bol,tasse,bouteille,casserole,poêle,théière,tour eiffel,
+`;
+export const FR_WORDS: string[] = Array.from(new Set(RAW.split(/[,\n]/).map((w) => w.trim().toLowerCase()).filter(Boolean)));

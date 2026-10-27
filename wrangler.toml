@@ -1,0 +1,33 @@
+name = "doodlepop"
+main = "worker/src/index.ts"
+compatibility_date = "2025-09-01"
+
+# Frontend (built by `npm run build` into web/dist) is served by Workers Assets from the same Worker.
+# Only API + WebSocket paths hit the Worker code first; everything else is static (SPA fallback).
+[assets]
+directory = "web/dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*", "/ws/*"]
+
+[[durable_objects.bindings]]
+name = "ROOM"
+class_name = "GameRoom"
+
+[[durable_objects.bindings]]
+name = "MATCHMAKER"
+class_name = "Matchmaker"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GameRoom", "Matchmaker"]
+
+# Optional: runtime word-pack overrides without redeploying.
+# 1) wrangler kv namespace create WORDS   2) paste the id below   3) uncomment
+# 4) wrangler kv key put --binding WORDS "words:en" --path my-words.txt
+# [[kv_namespaces]]
+# binding = "WORDS"
+# id = "<your-kv-namespace-id>"
+
+[observability]
+enabled = true
