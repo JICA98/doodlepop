@@ -31,6 +31,10 @@ export default {
         const code = decodeURIComponent(path.slice(4)).toLowerCase();
         if (!CODE_RE.test(code)) return new Response('Bad room code', { status: 400 });
         if (request.headers.get('Upgrade') !== 'websocket') return new Response('Expected websocket', { status: 426 });
+        // Browsers always send Origin on WebSocket upgrades: only accept our own pages (blocks other sites
+        // from burning your Durable Object quota). Non-browser clients (no Origin) are allowed.
+        const origin = request.headers.get('Origin');
+        if (origin && new URL(origin).host !== url.host) return new Response('Forbidden origin', { status: 403 });
         const stub = roomFor(env, code);
         const fwd = new URL(request.url);
         fwd.searchParams.set('code', code);

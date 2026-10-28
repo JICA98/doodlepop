@@ -36,7 +36,7 @@ class Client {
   async until(pred, ms = 8000, label = 'condition') {
     const t0 = Date.now();
     while (Date.now() - t0 < ms) { if (pred(this)) return true; await sleep(25); }
-    throw new Error(`timeout waiting for ${label} (${this.name}); phase=${this.view?.phase}`);
+    throw new Error(`timeout waiting for ${label} (${this.name}) room=${this.code} at=${Date.now()} phase=${this.view?.phase} endsIn=${this.view?.phaseEndsAt ? this.view.phaseEndsAt - Date.now() : null} startIn=${this.view?.startAt ? this.view.startAt - Date.now() : null}`);
   }
   close() { try { this.ws.close(); } catch {} }
 }
@@ -242,9 +242,10 @@ async function timers() {
 }
 
 try {
-  await privateGame();
-  await timers();
-  await matchmaking();
+  const only = process.env.ONLY; // e.g. ONLY=timers to run one section
+  if (!only || only === 'private') await privateGame();
+  if (!only || only === 'timers') await timers();
+  if (!only || only === 'matchmaking') await matchmaking();
 } catch (e) {
   failures++;
   console.error('\nERROR:', e.message);

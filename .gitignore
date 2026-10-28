@@ -6,3 +6,4 @@ web/dist
 claude.pid
 claude-build.log
 .DS_Store
+remote-control.pid

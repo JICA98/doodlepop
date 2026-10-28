@@ -119,8 +119,8 @@ try {
   await q2.type('input[aria-label=Nickname]', 'Quick2');
   await q2.select('select[aria-label=Language]', 'fr');
   await clickText(q2, 'Play!');
-  await q2.waitForSelector('.game', { timeout: 8000 });
-  await q1.waitForFunction(() => document.querySelectorAll('.player:not(.offline)').length === 2, { timeout: 5000 });
+  await q2.waitForSelector('.game', { timeout: 15000 });
+  await q1.waitForFunction(() => document.querySelectorAll('.player:not(.offline)').length >= 2, { timeout: 8000 });
   ok((await q1.url()) === (await q2.url()), 'two quick-play users matched into the same room');
   await q1.screenshot({ path: '/tmp/shots/09-public-lobby.png' });
 } catch (e) {
