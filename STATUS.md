@@ -1,8 +1,13 @@
 # Doodlepop – status
 
-**v1 feature-complete for near-parity.** Everything below is implemented and exercised locally with `wrangler dev`
-(real workerd + Durable Objects). It has **not** been deployed to a real Cloudflare account (no credentials were
-available) – the deploy path was validated only with `wrangler deploy --dry-run`.
+**v1 feature-complete for near-parity, published and deployed.**
+
+- Repo: https://github.com/JICA98/doodlepop (public, MIT)
+- Live: https://doodlepop.bachatas4.workers.dev (Cloudflare Workers + Durable Objects + Workers Assets)
+
+Everything below was exercised locally with `wrangler dev` (real workerd + Durable Objects), and the deployed site
+was smoke-tested live: home page and bundle, SPA fallback, `/api/meta`, 404s, public quick-play over `wss://` with two
+players matched into one room, cross-origin WebSocket rejection (403), and a real-browser quick-play join.
 
 ## Run locally
 
@@ -49,7 +54,8 @@ word-pack override are documented in `README.md`.
 | Unit tests (10) | `npm test` | pass |
 | Game over real WebSockets (full game, hints/time-out, reconnect, kick, matchmaking) | `npm run test:e2e` | 3/3 consecutive passes after final code |
 | Real-browser UI (Chrome via puppeteer-core) | `npm run test:ui` | 4/4 consecutive passes after final code |
-| Deploy config | `wrangler deploy --dry-run` | pass |
+| Deploy | `npm run deploy` (Node 22) | deployed; live smoke test passed |
+| Secret audit | gitleaks 8.30.1 on full history + working tree, plus manual greps | no findings |
 
 ## Known issues / caveats
 
@@ -70,4 +76,4 @@ word-pack override are documented in `README.md`.
 
 `worker/src/room.ts` (game state machine, one alarm drives all timers) · `worker/src/matchmaker.ts` ·
 `worker/src/logic.ts` (pure, unit-tested) · `shared/protocol.ts` (wire types, limits) · `web/src/` (Preact UI) ·
-`scripts/` (e2e, UI smoke).
+`scripts/` (e2e, UI smoke, screenshots).

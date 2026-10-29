@@ -11,7 +11,7 @@ Preact/Vite frontend.
 > **Not affiliated with skribbl.io.** Doodlepop is an independent, original project inspired by the genre's gameplay.
 > The name, logo, avatars, UI and word lists are original; nothing is copied from skribbl.io.
 
-<!-- LIVE_URL -->
+**▶ Play now: https://doodlepop.bachatas4.workers.dev**
 
 ![Drawing round](docs/screenshots/03-drawing.png)
 
