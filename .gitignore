@@ -1,9 +1,21 @@
+# dependencies / build output
 node_modules
 web/dist
+
+# Cloudflare local state and secrets
 .wrangler
 .dev.vars
+.dev.vars.*
+.env
+.env.*
+
+# logs, pids, OS cruft
 *.log
-claude.pid
-claude-build.log
+*.pid
 .DS_Store
-remote-control.pid
+
+# internal agent/tooling files (not part of the public repo)
+CLAUDE_TASK.md
+claude-build.log
+.claude/
+.codegraph/

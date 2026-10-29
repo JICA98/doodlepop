@@ -14,7 +14,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p web/tsconfig.json --noEmit",
     "test": "node --import tsx --test worker/test/*.test.ts",
     "test:e2e": "node scripts/e2e.mjs",
-    "test:ui": "node scripts/ui-smoke.mjs"
+    "test:ui": "node scripts/ui-smoke.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20261028.1",
@@ -32,5 +33,11 @@
   },
   "engines": {
     "node": ">=22"
-  }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JICA98/doodlepop.git"
+  },
+  "homepage": "https://github.com/JICA98/doodlepop#readme"
 }
